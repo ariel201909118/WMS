@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="flex-container">
+        <div class="container1">
+            <div class="container logo">
+                    <img src="{{url_for('static', filename='img/bolt.png') }}">
+            </div>
+            <div class="container d-flex">
+                <div class="contact-form">
+                    <h2>WMS File Generator</h2>
+                    <hr>
+                    <form action="" method="POST" enctype="multipart/form-data" >
+                        <div class="mb-3">
+                            <input type="file" name="file" value="Select a file" accept=".xlsx">
+                        </div>
+                        <div class="mb-3">
+                            <label for="container_no">Container No.
+                                <input type="text" name="container_no" class="form-control" required>
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="reference_no">Reference No.
+                                <input type="number" name="reference_no" class="form-control" required>
+                            </label>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary">Generate</button>
+                        </div>
+                    </form>
+                    <div class="message-container">
+                        <span name="last_reference">{{ reference }}</span>
+                        <span> {{ doc.filename }} </span>
+                        <span> {{ doc1.filename }} </span>
+                        <span> {{ doc2.filename }} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
